@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">		<!-- 在IE运行最新的渲染模式 --> 	<meta http-equiv="X-UA-Compatible" content="IE=edge,11,10"> 	<!-- 指定360使用webkit引擎渲染 --> 	<meta name="renderer" content="webkit">
+    <title>出错啦...</title>
+    <link rel="stylesheet" href="https://cn.changhong.com/images/public.css" type="text/css" />
+    <link rel="stylesheet" href="https://cn.changhong.com/images/style.css" type="text/css" />
+    <script src="https://images.changhong.com/chgw/images/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<!--头部工具-->
+    <script src="https://cn.changhong.com/images/jquery.min.js"></script>
+<script src="https://cn.changhong.com/images/ajaxURL.js"></script>
+<!--<script src="https://cn.changhong.com/ec/cshop/index.php?act=api_sso&op=login"></script>-->
+<!--<script src="https://cn.changhong.com/season/api/loginController/proxy"></script>-->
+<script>
+    var meta="<meta http-equiv='Content-Security-Policy' content='upgrade-insecure-requests' />";
+    $("head").prepend(meta);
+    var url=window.location.href;
+    if(url.indexOf("act=login")<0&&url.indexOf("act=cart")<0&&url.indexOf("wdch")<0&&url.indexOf("wdch")<0&&url.indexOf("act=member_order")<0&&url.indexOf("act=member_evaluate")<0&&url.indexOf("act=member_refund_return")<0&&url.indexOf("act=my_ofcenter")<0&&url.indexOf("act=member_ofcenter")<0&&url.indexOf("t20")<0&&url.indexOf("addToCart.html")){
+        $.ajax({
+            url:  "https://cn.changhong.com/season/api/loginController/ecCheckPhone",
+            timeout : 1000,
+            method: 'post',
+            async:true,
+            dataType: 'json',
+            success: function (data) {
+                //进行数据处理
+                if (data.isSuccess == true) {
+                    if(data.data!=null){window.location=data.data;}
+                }
+            }
+        });
+    }
+</script>
+<script>$.ajax({url:"https://cn.changhong.com/ec/cshop/index.php?act=api_sso&op=login",method: 'get',async:false,timeout:2000})</script>
+<script>$.ajax({url:"https://cn.changhong.com/season/api/loginController/proxy",method: 'get',async:false,timeout:2000})</script>
+<!--<script src="https://cn.changhong.com/images/changhong.js"></script>-->
+<script src="https://cn.changhong.com/images/echo.min.js"></script>
+<script src="https://cn.changhong.com/images/js.cookie-2.1.1.min.js" type="text/javascript"></script>
+<script src="https://cn.changhong.com/images/changhong_common.js" type="text/javascript"></script>
+<script src="https://cn.changhong.com/images/cartCookie.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://cn.changhong.com/images/common-getproductcategory.js"></script>
+<script type="text/javascript" src="https://cn.changhong.com/images/commonFunction.js"></script>
+<script src="https://cn.changhong.com/images/getdata.js" type="text/javascript"></script>
+<script src="https://cn.changhong.com/images/jquery.cookie.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cn.changhong.com/images/max-style.css" />
+<link rel="stylesheet" href="https://cn.changhong.com/images/center-style.css" type="text/css" />
+<link href="https://cn.changhong.com/images/homeNews.css" rel="stylesheet" type="text/css" />
+
+<!--
+<a target="_blank" class="top_ads_control" href="https://cn.changhong.com/activity/"><div style="background-image: url(https://cn.changhong.com/images/chiq_single_00.jpg); height:80px; background-repeat: no-repeat;background-position: center;overflow:hidden; width:100%;min-width:1226px; margin:0px auto;"></div></a>
+<a href="javascript:void(0)" id="top-act-guanbi"><img style="float:right; position:absolute; top:10px;right:100px;" src="https://images.changhong.com/chgw/images/top-act-guanbi.png" /></a>
+<script>
+jQuery(function($){
+   $("#top-act-guanbi").click(function(){
+        $(this).remove();
+        $(".top_ads_control").remove();
+   });
+});
+</script>
+-->
+<style>
+  .toolbar-container{
+        width:1226px;
+        margin:0 auto;
+    }
+    .toolbar-mytool {
+        width: 460px;
+    }
+    .tool-container {
+        width: 120px;
+    }
+    .tool-myCQ-operation {
+        height: auto;
+        overflow: hidden;
+    }
+    .tool-myCQ-operation a {
+        position: relative;
+    }
+    .tool-myCQ-operation a span.hot {
+        width: 10px;
+        height: 10px;
+        overflow: hidden;
+        display: block;
+        position: absolute;
+        top:-5px;
+        right: -10px;
+        margin: 0;
+        font-size: 0;
+        line-height: 0;
+        background: url(https://cn.changhong.com/images/hyqd_1130_1.png) no-repeat center center;
+    }
+    .tool-myCQ-operation-cut {
+        width: 100%;
+        height: 0;
+        font-size: 0;
+        line-height: 0;
+        display: block;
+        overflow: hidden;
+        clear: both;
+    }
+    .w100 {
+        width: 100px;
+    }
+    .tool-qd{
+        background: url(https://cn.changhong.com/images/home-toolbar-news_qd.png) no-repeat left center;
+        *width: 51px;
+        margin-right: 22px;
+        margin-left: 16px;
+    }
+    .hcyp-ewm-container{position: relative;}
+    .hcyp-ewm-img{position: absolute;left: 0;top:35px;display: none}
+    .hcyp-ewm-container:hover .hcyp-ewm-img{display: block;z-index:1000;}
+</style>
+<div class="toolbar">
+    <!--这个宽度限制导致右侧内容换行出不来，先注释-->
+    <!--<div class="com-width">-->
+    <div class="toolbar-container">
+        <div class="toolbar-left">
+            <ul>
+                <li ><a href='https://cn.changhong.com/index.html?f=top' class="cur">长虹官网</a></li>
+                <li><a href='https://group.changhong.com/?f=top' target="_blank">关于长虹</a></li>
+                <li><a href='https://business.changhong.com/?f=top' target="_blank">商务合作</a></li>
+                <li><a href="http://www.chiq.com" target="_blank"><img src="https://images.changhong.com/chgw/images/en_icon.png" />&nbsp;&nbsp;English</a></li>
+            </ul>
+        </div>
+        <div class="toolbar-right">
+            <div class="toolbar-login" id="unLoginDiv">
+                <a href="javascript:;" id="sso_login">登录</a>
+                <span>|</span>
+                <a href="https://cn.changhong.com/sso/trs/registerByPhone.do" target="_blank">注册</a>
+            </div>
+            <div class="toolbar-login" style="display: none" id="hasLoginDiv">
+                <!--<a href="">登录</a>-->
+                <!--<span>|</span>-->
+                <!--<a href="">注册</a>-->
+                <a href="javascript:;" class="user-account" id="user-account"></a>
+                <a href="javascript:;" id="sso_logout">退出</a>
+            </div>
+            <div class="toolbar-mytool">
+                <div class="tool-container tool-shoppingCar-container">
+                    <div class="tool-container-row">
+                        <a href='https://cn.changhong.com/wdch/' class="tool-myCQ" target="_blank">我的长虹</a>
+                    </div>
+                    <div class="tool-myCQ-tips">
+                        <div class="tool-myCQ-infor">
+                            <img src="https://cn.changhong.com/images/tool-myCQ-my-photo_03.jpg" alt="" width="60" height="60" id="user_image" />
+                            <p class="tool-myCQ-infor-phone" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-right: 5px;"><a href="javascript:gotoLogin();" id="login_account" >您好请登录</a></p>
+                            <p class="tool-myCQ-infor-setting"><a href="https://cn.changhong.com/wdch/zhsz/">账户设置</a></p>
+                        </div>
+                        <div class="tool-myCQ-operation">
+                            <a href="https://cn.changhong.com/ec/cshop/index.php?act=member_order&op=index">我的订单</a>
+                            <span>|</span>
+                            <a href="https://cn.changhong.com/ec/cshop/index.php?act=member_preselling_zero&op=index">我的预约</a>
+                            <div class="tool-myCQ-operation-cut"></div>
+                            <a href="https://cn.changhong.com/wdch/jdgj/">家电管家</a>
+                            <span>|</span>
+                            <a href="https://cn.changhong.com/wdch/jdgj/fwjl/">服务记录</a>
+                            <div class="tool-myCQ-operation-cut"></div>
+                            <a href="https://cn.changhong.com/wdch/wdsz/">我的收藏</a>
+                            <span>|</span>
+                            
+                            <div class="tool-myCQ-operation-cut"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--2018.5.31隐藏签到入口-->
+                <!--<div class="tool-container w100">
+                    <div class="tool-container-row">
+                        <a href='https://cn.changhong.com/wdch/wdqd/' target="_blank" class="tool-qd">签到</a>
+                    </div>
+
+                </div>-->
+                <!--2017.10.23修改隐藏，修改成"礼品兑换"<div class="tool-container">
+                    <div class="tool-container-row">
+                        <a href='https://cn.changhong.com/wdch/wdxx/' target="_blank" class="tool-news"><b id="allMessage_top">(0)</b>消息</a>
+                    </div>
+
+                </div>-->
+                <div class="tool-container tool-shoppingCar-container">
+                    <!--20181011修改引入虹创有品
+                    <div class="tool-container-row">
+                        <a href='https://cn.changhong.com/wdch/wdcs/' target="_blank" class="tool-news">礼品兑换</a>
+                    </div>-->
+                    <div class="tool-container-row hcyp-ewm-container">
+                        <a href='https://cn.changhong.com/activity/xrzm2.html' target="_blank" class="tool-news">虹创有品</a>
+                        <img class="hcyp-ewm-img" src="https://images.changhong.com/chgw/images/cnhome-hcyp-ewm.jpg" alt="" />
+                    </div>
+                </div>
+                <div class="tool-container tool-shoppingCar-container">
+                    <div class="tool-container-row">
+                        <a href="https://cn.changhong.com/ec/cshop/index.php?act=cart&op=index" class="tool-shoppingCar"><span id="mycartNum" style="display:none;"></span>购物车</a>
+                    </div>
+                    <div class="tool-container-tips">
+                        <div class="tool-container-tips-warp">
+                        </div>
+                        <div class="tool-goods-pay" style="display: none">
+                            <div class="tool-car-infor">
+                                <p><span id="totalNum">0</span>件商品</p>
+                                <h1>总价：<span id="totalPrice"></span></h1>
+                            </div>
+                            <a href="javascript:;" class="goods-pay-btn" id="goods-pay-btn">立即结算</a>
+                        </div>
+                        <h1 class="tips-nogoods" style="display:none">
+                            购物车中还没有商品，赶紧选购吧
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function(){
+        //延迟加载图片
+        echo.init({
+            offset: 300,
+            throttle:250,
+            debounce:false
+        });
+        $(".home-nav-inner ul li").mouseenter(function(){
+            echo.render();
+        });
+        $(".home-nav ul li").mouseover(function(){
+            echo.render();
+        });
+        cartCookieList();//刷新购物车页面
+        //查询消息各种状态数量
+        $.ajax({
+            url:  myMessage_statusNum,
+            data: null,
+            method: 'post',
+            dataType: 'json',
+            //jsonp: 'callback',
+            success: function (data) {
+                //进行数据处理
+                if (data.isSuccess == false) {
+                    $("#allMessage_top").html("( 0 )");
+
+                } else {
+                    var arr=data.result;
+                    $("#allMessage_top").html("( "+arr.S3+" )");
+                }
+            }
+        });
+        //获取优惠券、积分提示红点
+        getmy_qd_lb_num_topnav();
+    });
+
+    //每日签到&&会员礼包
+    function getmy_qd_lb_num_topnav() {
+        var url = businessApiPath+'?act=receive_gift&op=receive_gift&op=isno_receive_giftvoucherintegral';
+        $.get(url,'',function(data) {
+            var json = eval('(' + data + ')');
+            if(json.code==0) {
+                var hothtml = '<span class="hot"></span>';
+                var jsondata = json.data;
+                var integral = parseInt(jsondata.integral);//积分
+                var vouchernum = parseInt(jsondata.voucher_num);//优惠券
+                if( integral != 0 ){
+                    $('.tool-myCQ-operation').find('a').eq(4).append(hothtml);
+                }
+                if( vouchernum > 0 ){
+                    $('.tool-myCQ-operation').find('a').eq(5).append(hothtml);
+                }
+            }else{
+                return false;
+            }
+        });
+    }
+
+</script>
+<!--头部工具 -end-->
+   <script type="text/javascript" src="https://cn.changhong.com/images/Main.js"></script>
+<!--导航 -->
+<div class="header-nav header-nav-shadow" id="channeldh">
+    <div class="com-width clearfix header-nav-container">
+        <div class="header-logo">
+            <a href='https://cn.changhong.com/index.html'><img src="https://cn.changhong.com/gwsy/images/P020161125568572860644.png" alt="" width="239" height="78" /></a>
+        </div>
+        <div class="home-nav">
+            <ul>
+                <li><div class="home-nav-menu"><a href='https://cn.changhong.com/index.html'>首页</a></div></li>
+                
+                    
+                        <li>
+                            <div class="home-nav-menu"><a href="/cpzx/pb_televisions/?f=nvi" target="_blank">电视</a></div>                   
+                            <div class="home-nav-sub" style='display:none'>
+    <div class="com-width">
+        <p class="home-sub-title" >
+        <a href="javascript:void(0);" style="cursor:default;">热门推荐</a>
+        </p>
+    <div class="home-nav-sub-cont">
+        
+            <div class="home-sub-box" r3code='CH5012137'>
+            <a  href='https://cn.changhong.com/cpzx/chiq/chiq_televisions/chiq_q6k/201811/t20181117_73083.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztds/201611/W020200203396252998723_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/chiq/chiq_televisions/chiq_q6k/201811/t20181117_73083.html?f=nvi' target="_blank" title='65英寸超薄物联电视'>65英寸超薄物...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH5013151'>
+            <a  href='https://cn.changhong.com/cpzx/chiq/chiq_televisions/q6n/201905/t20190506_75287.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztds/201611/W020200203396755514725_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/chiq/chiq_televisions/q6n/201905/t20190506_75287.html?f=nvi' target="_blank" title='65寸轻薄物联电视'>65寸轻薄物联电视</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH5013989'>
+            <a  href='https://cn.changhong.com/cpzx/chiq/chiq_televisions/201909/t20190930_76134.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztds/201611/W020200203397239319679_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/chiq/chiq_televisions/201909/t20190930_76134.html?f=nvi' target="_blank" title='82英寸无边全面屏电视'>82英寸无边全...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH1113631'>
+            <a  href='https://cn.changhong.com/cpzx/pb_televisions/jgds/201910/t20191029_76256.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztds/201611/W020200203397618704399_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/pb_televisions/jgds/201910/t20191029_76256.html?f=nvi' target="_blank" title='三色4K激光影院'>三色4K激光影院</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+    </div>
+</div>
+</div>
+                        </li>
+                    
+                    
+                        <li>
+                            <div class="home-nav-menu"><a href="/cpzx/jy_aircondition/?f=nvi" target="_blank">空调</a></div>
+                            <div class="home-nav-sub" style='display:none'>
+    <div class="com-width">
+        <p class="home-sub-title" >
+        <a href="javascript:void(0);" style="cursor:default;">热门推荐</a>
+        </p>
+    <div class="home-nav-sub-cont">
+        
+            <div class="home-sub-box" r3code='CH8002156'>
+            <a  href='https://cn.changhong.com/cpzx/jy_aircondition/ljs_719/3p/201810/t20181026_72865.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztkd/201611/W020200203398197115245_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/jy_aircondition/ljs_719/3p/201810/t20181026_72865.html?f=nvi' target="_blank" title='CHiQ大3P AI人工智能空调'>CHiQ大3P AI人...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH8001794'>
+            <a  href='https://cn.changhong.com/cpzx/jy_aircondition/ljs_719/2p/201810/t20181026_72880.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztkd/201611/W020200203398834780255_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/jy_aircondition/ljs_719/2p/201810/t20181026_72880.html?f=nvi' target="_blank" title='CHiQ 大2P智能物联空调'>CHiQ 大2P智能...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code=''>
+            <a  href='?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztkd/201611/W020200203399515744950_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='?f=nvi' target="_blank" title='CHiQ 1.5P静音节能空调'>CHiQ 1.5P静音...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH8001550'>
+            <a  href='https://cn.changhong.com/cpzx/jy_aircondition/bgs_718/d1p/201810/t20181026_72875.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztkd/201611/W020200203400969250339_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/jy_aircondition/bgs_718/d1p/201810/t20181026_72875.html?f=nvi' target="_blank" title='CHiQ 1P智清洁物联空调'>CHiQ 1P智清洁...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+    </div>
+</div>
+</div>
+                        </li>
+                    
+                    
+                        <li>
+                            <div class="home-nav-menu"><a href="/cpzx/bx/bingxiang/?f=nvi" target="_blank">冰箱</a></div>
+                            <div class="home-nav-sub" style='display:none'>
+    <div class="com-width">
+        <p class="home-sub-title" >
+        <a href="javascript:void(0);" style="cursor:default;">热门推荐</a>
+        </p>
+    <div class="home-nav-sub-cont">
+        
+            <div class="home-sub-box" r3code='ML9025928'>
+            <a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dm/201902/t20190228_73652.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztbx/201611/W020200203401426407692_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dm/201902/t20190228_73652.html?f=nvi' target="_blank" title='656升全面薄水分子保鲜冰箱'>656升全面薄水...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='ML9025145'>
+            <a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dm/201902/t20190228_73651.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztbx/201611/W020200203401815965773_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dm/201902/t20190228_73651.html?f=nvi' target="_blank" title='482升超薄水分子保鲜冰箱'>482升超薄水分...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='ML9023697'>
+            <a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dkm/201808/t20180820_71947.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztbx/201611/W020200203402264006928_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dkm/201808/t20180820_71947.html?f=nvi' target="_blank" title='645升M鲜生智能保鲜冰箱'>645升M鲜生智...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='ML9020695'>
+            <a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dkm/201801/t20180120_68375.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztbx/201611/W020190305579652915744_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/bingxiang/dkm/201801/t20180120_68375.html?f=nvi' target="_blank" title='520升M鲜生智能保鲜冰箱'>520升M鲜生智...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+    </div>
+</div>
+</div>
+                        </li>
+                    
+                    
+                        <li>
+                            <div class="home-nav-menu"><a href="/cpzx/bx/xyj/?f=nvi" target="_blank">洗衣机</a></div>
+                            <div class="home-nav-sub" style='display:none'>
+    <div class="com-width">
+        <p class="home-sub-title" >
+        <a href="javascript:void(0);" style="cursor:default;">热门推荐</a>
+        </p>
+    <div class="home-nav-sub-cont">
+        
+            <div class="home-sub-box" r3code='CH1105862'>
+            <a  href='https://cn.changhong.com/cpzx/shjd/cwdd/xyyj/201910/t20191012_76192.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztshjd/201907/W020200203403246394130_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/shjd/cwdd/xyyj/201910/t20191012_76192.html?f=nvi' target="_blank" title='长虹近吸型烟机'>长虹近吸型烟机</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH1072820'>
+            <a  href='https://cn.changhong.com/cpzx/shjd/cwdd/drsq/201712/t20171216_68219.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztshjd/201907/W020200203403680250730_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/shjd/cwdd/drsq/201712/t20171216_68219.html?f=nvi' target="_blank" title='60升 储水式速热电热水器'>60升 储水式速...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH1097500'>
+            <a  href='https://cn.changhong.com/cpzx/shjd/cwdd/rqz/201910/t20191012_76188.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztshjd/201907/W020200203404052407619_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/shjd/cwdd/rqz/201910/t20191012_76188.html?f=nvi' target="_blank" title='嵌入式钢化玻璃燃气灶'>嵌入式钢化玻...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='CH1085967'>
+            <a  href='https://cn.changhong.com/cpzx/shjd/cwxd/dfb/201708/t20170802_67458.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztshjd/201907/W020200203404607552894_135.jpg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/shjd/cwxd/dfb/201708/t20170802_67458.html?f=nvi' target="_blank" title='67度多功能低温料理煮蛋器'>67度多功能低...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+    </div>
+</div>
+</div>
+                        </li>
+                    
+                    
+                        <li>
+                            <div class="home-nav-menu"><a href="/cpzx/shjd/?f=nvi" target="_blank">生活家电</a></div>
+                            <div class="home-nav-sub" style='display:none'>
+    <div class="com-width">
+        <p class="home-sub-title" >
+        <a href="javascript:void(0);" style="cursor:default;">热门推荐</a>
+        </p>
+    <div class="home-nav-sub-cont">
+        
+            <div class="home-sub-box" r3code='ML9022297'>
+            <a  href='https://cn.changhong.com/cpzx/bx/xyj/gt/201808/t20180819_71794.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztxsq/201612/W020200203467870801568_135.jpeg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/xyj/gt/201808/t20180819_71794.html?f=nvi' target="_blank" title='10公斤洗烘一体滚筒洗衣机'>10公斤洗烘一...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='ML9022298'>
+            <a  href='https://cn.changhong.com/cpzx/bx/xyj/gt/201808/t20180819_71795.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztxsq/201612/W020200203468717133364_135.jpeg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/xyj/gt/201808/t20180819_71795.html?f=nvi' target="_blank" title='10公斤智能变频滚筒洗衣机'>10公斤智能变...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='ML9014894'>
+            <a  href='https://cn.changhong.com/cpzx/bx/xyj/gt/201708/t20170824_67600.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztxsq/201612/W020200203469371311299_135.jpeg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/xyj/gt/201708/t20170824_67600.html?f=nvi' target="_blank" title='8公斤全自动变频滚筒洗衣机'>8公斤全自动变...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box" r3code='ML9028855'>
+            <a  href='https://cn.changhong.com/cpzx/bx/xyj/bl/201909/t20190918_76072.html?f=nvi'  target="_blank" class="home-goods-img"><img data-echo='https://images.changhong.com/chgw/gwsy/zt/ztxsq/201612/W020200203469943260300_135.jpeg' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/cpzx/bx/xyj/bl/201909/t20190918_76072.html?f=nvi' target="_blank" title='8公斤全自动波轮洗衣机'>8公斤全自动波...</a></p>
+            <h1></h1>
+            <div class="home-sub-line"></div>
+            </div>
+        
+    </div>
+</div>
+</div>
+                        </li>
+                    
+                    
+                        <li>
+                            <div class="home-nav-menu"><a href="/fw/?f=nvi" target="_blank">服务</a></div>
+                            <div class="home-nav-sub" style='display:none'>
+    <div class="com-width">
+        <p class="home-sub-title" >
+        <a href="javascript:void(0);" style="cursor:default;">服务支持</a>
+        </p>
+    <div class="home-nav-sub-cont">
+        
+            <div class="home-sub-box">
+            <a  href='https://cn.changhong.com/fw/cpbxfw/'  target="_blank" class="home-goods-img"><img src='https://images.changhong.com/chgw/gwsy/zt/ztfw/201707/W020170727354567218829.png' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/fw/cpbxfw/' target="_blank" title='产品报修服务'>产品报修服务</a></p>
+<!--
+            <h1></h1>
+-->
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box">
+            <a  href='https://cn.changhong.com/fw/azyqyfw/'  target="_blank" class="home-goods-img"><img src='https://images.changhong.com/chgw/gwsy/zt/ztfw/201707/W020170727355062363774.png' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/fw/azyqyfw/' target="_blank" title='安装与迁移服务'>安装与迁移服务</a></p>
+<!--
+            <h1></h1>
+-->
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box">
+            <a  href='https://cn.changhong.com/fw/cpbxfw/fwzc_2/'  target="_blank" class="home-goods-img"><img src='https://images.changhong.com/chgw/gwsy/zt/ztfw/201707/W020170727355825214427.png' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/fw/cpbxfw/fwzc_2/' target="_blank" title='服务政策'>服务政策</a></p>
+<!--
+            <h1></h1>
+-->
+            <div class="home-sub-line"></div>
+            </div>
+        
+            <div class="home-sub-box">
+            <a  href='https://cn.changhong.com/fw/cjwt/gzpc/'  target="_blank" class="home-goods-img"><img src='https://images.changhong.com/chgw/gwsy/zt/ztfw/201707/W020170727356083208002.png' class="lazy-zt" /></a>
+            <p><a  href='https://cn.changhong.com/fw/cjwt/gzpc/' target="_blank" title='常见问题'>常见问题</a></p>
+<!--
+            <h1></h1>
+-->
+            <div class="home-sub-line"></div>
+            </div>
+        
+    </div>
+</div>
+</div>
+                        </li>
+                    
+                
+            </ul>
+        </div>
+        <!--搜索框1-->
+        
+<div class="home-search">
+      <input type="text" id="searchInput" class="home-search-key" value='Q6R' />
+      <input type="button" class="home-search-btn" onclick="checkfromdata()" />
+</div>
+<script>
+   //显示默认下拉框
+   jQuery.fn.orignSearchTips = function () {
+	var _width = jQuery(this).width(),
+		_left = jQuery(this).offset() ? jQuery(this).offset().left : 0,
+		_top = jQuery(this).offset() ? jQuery(this).offset().top : 0;
+	_top = _top + jQuery(this).height();
+	jQuery('#orignSearchList').css({ left: _left, width: _width, top: _top });
+	jQuery('#orignSearchList').show();
+   }
+   $("#searchInput").focus(function(){
+       if(this.value=='Q6R'){
+           $(this).val('');
+           jQuery('.home-search').orignSearchTips();
+        }
+   })
+   $("#searchInput").blur(function(){
+       if(this.value==''){
+           $(this).val('Q6R');
+        }
+           //jQuery('#orignSearchList').hide();
+   })
+</script>
+
+        <div class="home-nav-inner">
+            <div class="home-inner-edit">
+                <a href="javascript:void(0)"></a>
+            </div>
+            <ul>
+               
+                    <!--chiq-->
+                    
+                        <li>
+                            <div class="home-inner-menu home-inner-chiq">
+                                <!--启客系列-->
+                                 <a href='https://cn.changhong.com/cpzx/chiq/search.html?protype=chiq'  target="_blank" >启客系列</a><span></span>
+                            </div>
+                            <div class="home-inner-secd ">
+                                
+								<!--chiq电视-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq" target="_blank" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/chiq/chiq_televisions/images/P020160928565091974075.jpg" class="lazy-nav" alt="" width="60" height="60" />CHiQ电视
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=2030">Q5R</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=1827">Q5K</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=1448">Q5N</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=1842">Q5T</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=1473">Q5A</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=696">Q3T</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=2392">Q6K</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=2498">Q6N</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_televisions/search.html?protype=chiq&channelid=2500">Q6A</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+			            <!--chiq空调-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_aircondition/search.html?protype=chiq" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/chiq/chiq_aircondition/images/P020160905719966838440.png" class="lazy-nav" alt="" width="60" height="60" />CHiQ空调
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_aircondition/search.html?protype=chiq&cplx=0">立柜式</a>
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_aircondition/search.html?protype=chiq&cplx=1">壁挂式</a>
+                                            </div>
+                                        </div>
+                                    
+				   <!--chiq冰箱-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_bx/search.html?protype=chiq" class="inner-list-name"><!--https://cn.changhong.com/cpzx/chiq/chiq_bx/search.html?tvlx=chiq"--> 
+                                                <img data-echo="https://cn.changhong.com/cpzx/chiq/chiq_bx/images/P020160905720034165845.png" class="lazy-nav" alt="" width="60" height="60" />CHiQ冰箱
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                 <a target="_blank" href="https://cn.changhong.com/cpzx/chiq/chiq_bx/search.html?protype=chiq&kmfs=0">对开门</a>
+                                            </div>
+                                        </div>
+                                    
+                               
+                            </div>
+                        </li>
+                    
+                <!--chiq-->
+                <!--平板电视-->
+                    
+                        <li>
+                            <div class="home-inner-menu home-inner-TV">
+                                <!--<a href='https://cn.changhong.com/cpzx/pb_televisions/search.html'  target="_blank"  >平板电视</a><span></span>-->
+				<a href='https://cn.changhong.com/cpzx/pb_televisions/'  target="_blank" >平板电视</a><span></span>
+                            </div>
+                            <div class="home-inner-secd ">
+                                
+									<!--激光电视-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/search.html?channelid=1173" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/pb_televisions/jgds/images/P020161124709324301492.jpg" class="lazy-nav" alt="" width="60" height="60" />激光电视
+                                            </a>									
+                                        </div>
+                                    
+									<!--人工智能-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/search.html?channelid=1217" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/pb_televisions/znyy/images/P020161123841899750295.jpg" class="lazy-nav" alt="" width="60" height="60" />智能电视
+                                            </a>
+                                        </div>
+                                    
+									<!--4K超高清-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/search.html?channelid=703" class="inner-list-name"><!--?tvlx=chiq"--> 
+                                                <img data-echo="https://cn.changhong.com/cpzx/pb_televisions/4kcgq/images/P020160905720179795796.png" class="lazy-nav" alt="" width="60" height="60" />4K超高清
+                                            </a>
+                                        </div>
+                                    
+									<!--安卓电视-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/search.html?channelid=1218" class="inner-list-name"><!--?tvlx=chiq"--> 
+                                                <img data-echo="https://cn.changhong.com/cpzx/pb_televisions/azds/images/P020161123843936525290.jpg" class="lazy-nav" alt="" width="60" height="60" />HDR电视
+                                            </a>
+                                        </div>
+                                    
+									<!--商用显示-->
+
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/syxs/search.html?pageNo=1&protype=business" class="inner-list-name"><!--https://cn.changhong.com/cpzx/pb_televisions/syxs/search.html?tvlx=chiq"--> 
+                                                <img data-echo="https://cn.changhong.com/cpzx/pb_televisions/syxs/images/P020171204388844684796.jpg" class="lazy-nav" alt="" width="60" height="60" />商用显示
+                                            </a>
+<!--
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/syxs/">酒店电视</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/syxs/">孝芯电视</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/pb_televisions/syxs/">广告机</a>
+                                                
+                                            </div>
+-->
+                                        </div>
+                                    
+
+                                
+                            </div>
+                        </li>   
+                    
+                <!--平板电视-->
+                <!--家用空调-->
+                   
+                        <li>
+                            <div class="home-inner-menu home-inner-air">
+                                <!--<a href="./cpzx/jy_aircondition/" target="_blank">空调产品</a>-->
+                                <a href='https://cn.changhong.com/cpzx/jy_aircondition/' target="_blank" >空调产品</a><span></span>
+                            </div>
+                            <div class="home-inner-secd ">
+                                
+									<!--壁挂式1-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/search.html?cplx=0" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/jy_aircondition/bgs_718/images/P020160905720366286442.png" class="lazy-nav" alt="" width="60" height="60" />壁挂式
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/search.html?cplx=0&spps=0">大1P</a>
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/search.html?cplx=0&spps=1">正1.5P</a>
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/search.html?cplx=0&spps=2">2P</a>
+                                            </div>
+                                        </div>
+                                    
+									<!--立柜式1-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/search.html?cplx=1" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/jy_aircondition/ljs_719/images/P020160905720425157151.png" class="lazy-nav" alt="" width="60" height="60" />立柜式
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/search.html?cplx=1&spps=2">2P</a>
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/search.html?cplx=1&spps=3">3P</a>
+                                            </div>
+                                        </div>
+                                    
+									<!--中央空调1-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/zykd/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/jy_aircondition/zykd/images/P020170526646040739450.png" class="lazy-nav" alt="" width="60" height="60" />中央空调
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                 
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/zykd/fgj/">风管机</a>
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/zykd/thj/">天花机</a>
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/jy_aircondition/zykd/rbcp/">热泵产品</a>
+                                                    
+                                            </div>
+                                        </div>
+                                    
+                                   
+                                
+                            </div>
+                        </li>
+                   
+                <!--家用空调-->
+                <!--冰洗-->
+                   
+                        <li>
+                            <div class="home-inner-menu home-inner-icebox">
+                                <!--<a href="./cpzx/bx/" target="_blank">冰洗产品</a> href='https://cn.changhong.com/cpzx/bx/search.html?bxlx=qtbx'-->
+                                <a href='https://cn.changhong.com/cpzx/bx/' target="_blank" >冰洗产品</a><span></span>
+                            </div>
+                            <div class="home-inner-secd ">
+                                
+									<!--冰箱-->
+                                    
+                                        <div class="inner-pro-list">
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/bx/bingxiang/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/bx/bingxiang/images/P020160905720553331837.png" class="lazy-nav" alt="" width="60" height="60" />冰箱
+                                            </a>
+                                            <div class="inner-pro-content">
+                                              
+                                              <a target="_blank" href="https://cn.changhong.com/cpzx/bx/bingxiang/search.html?kmfs=0">对开门</a>
+                                              <a target="_blank" href="https://cn.changhong.com/cpzx/bx/bingxiang/search.html?kmfs=1">三门</a>
+                                              <a target="_blank" href="https://cn.changhong.com/cpzx/bx/bingxiang/search.html?kmfs=2">多门</a>											  
+                                            </div>
+                                        </div>
+                                    
+					<!--洗衣机-->
+									
+                                        <div class="inner-pro-list">
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/bx/xyj/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/bx/xyj/images/P020161123845264688719.jpg" class="lazy-nav" alt="" width="60" height="60" />洗衣机
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/bx/xyj/search.html?tablename=1">波轮洗衣机</a>
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/bx/xyj/search.html?tablename=0">滚筒洗衣机</a>
+											
+                                            </div>
+                                        </div>
+                                    
+                                    </trs_record>
+					<!--冰柜-->
+									
+                                        <div class="inner-pro-list">
+                                                <a target="_blank" href="https://cn.changhong.com/cpzx/bx/bg/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/bx/bg/images/P020170825824859185670.jpg" class="lazy-nav" alt="" width="60" height="60" />冰柜
+                                            </a>
+                                            
+                                        </div>
+                                    
+                                
+                            </div>
+                        </li>
+                   
+                <!--冰洗-->
+                <!--生活电器-->
+                    
+                        <li>
+                            <div class="home-inner-menu home-inner-ele">
+                                <!--生活家电-->
+                                <a  href='https://cn.changhong.com/cpzx/shjd/'  target="_blank">生活家电</a><span></span>
+                            </div>
+                            <div class="home-inner-secd ">
+                                
+									<!--生活电器频道-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/shjd/life_electric/images/P020200202680273692301.jpg" class="lazy-nav" alt="" width="60" height="60" />生活电器
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/jhq/search.html?channelid=721">净化器</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/jsq/search.html?channelid=1172">净水器</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/fs/search.html?channelid=1776">风扇</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/sdjqr/search.html?channelid=2551">扫地机器人</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/cfltsc/search.html?channelid=3854">厨房龙头水槽</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/dclg/search.html?channelid=3860">电磁炉锅</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/dnq/search.html?channelid=3866">电暖器</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/drslt/search.html?channelid=3939">电热水龙头</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/gsjhqxj/search.html?channelid=3878">果蔬净化清洗机</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/ysjl/search.html?channelid=3884">饮水机类</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/kzgl/search.html?channelid=3890">烤炸锅类</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/jbjl/search.html?channelid=3896">搅拌机类</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/rqbgl/search.html?channelid=3902">燃气壁挂炉</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/xcq/search.html?channelid=3908">吸尘器</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/xwj/search.html?channelid=3914">洗碗机</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/ysxl/search.html?channelid=3920">浴室系列</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/znwyxl/search.html?channelid=3926">智能卫浴系列</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/life_electric/zyp/search.html?channelid=3932">足浴盆</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwdd/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/shjd/life_electric/images/P020200202680273692301.jpg" class="lazy-nav" alt="" width="60" height="60" />厨卫大电
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwdd/jcz/search.html?channelid=2039">集成灶</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwdd/xyyj/search.html?channelid=1162">吸油烟机</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwdd/rqz/search.html?channelid=1163">燃气灶</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwdd/drsq/search.html?channelid=1165">电热水器</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwdd/gas_heater/search.html?channelid=1440">燃气热水器</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwdd/kqnrsq/search.html?channelid=1481">空气能热水器</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwxd/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/shjd/life_electric/images/P020200202680273692301.jpg" class="lazy-nav" alt="" width="60" height="60" />厨卫小电
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwxd/ysh/search.html?channelid=722">养生壶</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwxd/dylg/search.html?channelid=1167">电压力锅</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwxd/dfb/search.html?channelid=1775">电饭煲</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/shjd/cwxd/cwpj/search.html?channelid=2040">厨卫配件</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+									<!--厨卫大电-->
+                                    
+									<!--厨卫小电-->
+                                    
+                                
+                            </div>
+                        </li>
+                    
+                <!--生活电器-->
+                <!--数码影音-->
+                    
+                        <li>
+                            <div class="home-inner-menu home-inner-digital">
+                                <a href='https://cn.changhong.com/cpzx/digital/' target="_blank">数码影音</a><span></span>
+                            </div>
+                            <div class="home-inner-secd ">
+                                
+									<!--移动通讯-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/digital/ydtx/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/digital/ydtx/images/P020160905720791038619.png" class="lazy-nav" alt="" width="60" height="60" />移动通讯
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/ydtx/sj/search.html?channelid=1107" >手机</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+									<!--娱乐影音-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/digital/ylyy/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/digital/ylyy/images/P020160905720870525722.png" class="lazy-nav" alt="" width="60" height="60" />娱乐影音
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/ylyy/mmgwyx/search.html?channelid=725">音箱</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/ylyy/ht/search.html?channelid=2523">话筒</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+									<!--数码配件-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/digital/smpj/" class="inner-list-name">
+                                                <img data-echo="https://cn.changhong.com/cpzx/digital/smpj/images/P020160928694064288531.jpg" class="lazy-nav" alt="" width="60" height="60" />数码配件
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/smpj/yddy/search.html?channelid=1106">移动电源</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/smpj/dc/search.html?channelid=1183">电池</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/smpj/ej/search.html?channelid=1777">耳机</a>
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/smpj/znjqr/search.html?channelid=2409">智能机器人</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+									<!--电视周边-->
+                                    
+                                        <div class="inner-pro-list">
+                                            <a target="_blank" href="https://cn.changhong.com/cpzx/digital/dszb/" class="inner-list-name">
+                                                <img data-echo="" class="lazy-nav" alt="" width="60" height="60" />电视周边
+                                            </a>
+                                            <div class="inner-pro-content">
+                                                
+                                                    <a target="_blank" href="https://cn.changhong.com/cpzx/digital/dszb/xnk/search.html?channelid=2481">虚拟卡</a>
+                                                
+                                            </div>
+                                        </div>
+                                    
+
+
+
+                                
+                            </div>
+                        </li>
+                    
+                <!--数码影音-->
+                <!--周边其他--><!--照明-->
+                    
+                     

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="header">
+            <ul class="header-left float_left">
+                <li style="background:#555;"><a>长虹官网</a></li>
+                <li><a href="#">关于长虹</a></li>
+                <li ><a href="#">商务合作</a></li>
+                <li><a href="#"><img src="./picture/en_icon.png" alt="" class="float_left">&nbsp;&nbsp;English</a></li>            
+            </ul>
+            <div class="header-right float_left">
+                <div class="header-login">
+                    <a href="login.html">登录</a>
+                    <span>|</span>
+                    <a href="register.html">注册</a>
+                </div>
+                <div id="header-myCH" class="header-CHwidth"><a href="#">我的长虹</a>
+                    <em>
+                        <div style="height: 55px;">
+                            <img src="./images/ch.png" alt="" class="float_left" style="margin-right:20px">
+                            <a href="login.html" class="clear_bg">您好请登录</a>
+                            <a href="#" class="clear_bg">账户设置</a>
+                        </div>
+                        <ul>
+                            <li>我的订单</li>
+                            <li class="clear_border" style="padding-left:10px">我的预约</li>
+                        </ul>
+                        <ul>
+                            <li>家电管家</li>
+                            <li class="clear_border" style="padding-left:10px">服务记录</li>
+                        </ul>
+                        <ul>
+                            <li>我的收藏</li>
+                        </ul>
+                    </em>
+                </div>
+                <div id="header-CHYP" class="header-CHwidth"><a href="#">长虹有品</a><em></em></div>
+                <div id="header-shoppingCar" class="header-CHwidth"><a href="#">购物车</a><em>购物车中还没有商品,赶紧选购吧</em></div>
+            </div>
+        </div>
+    </header>
+    <!-- nav -->
+    <div class="nav">
+        <div class="nav-con">
+            <div class="nav-logo float_left">
+                <a href="#">
+                    <img src="./picture/header-logo_07.png" alt="">
+                </a>
+            </div>
+            <p class="nav-login">注册</p>
+        </div>
+    </div>
+    <!-- 注册 -->
+    <div class="register">
+        <div class="new-register-row">
+            <p class="new-register-label">用户名</p>
+            <input name="username" type="text" class="new-login-account" placeholder="请输入用户名" autocomplete="off">
+            <span class="regist-success" style="width:40px;"></span>
+            <span class="new-register-error">数字，字母，下划线组成，不能以数字开头，6-16位</span>
+            <span class="register-login">该用户已注册,<a href="login.html" style="color: #e42121;">立即登录</a></span>
+        </div>
+        <div class="new-register-row">
+            <p class="new-register-label">设置密码</p>
+            <input name="userpass" type="password" class="new-login-account" placeholder="请输入密码" autocomplete="off">
+            <span class="regist-success" style="width:40px;"></span>
+            <span class="new-register-error">长度在8~16之间，必须包含字母和数字</span>
+            <em>长度在8~16之间，必须包含字母和数字</em>
+        </div>
+        <div class="new-register-row">
+            <p class="new-register-label">确认密码</p>
+            <input name="commonpass" type="password" class="new-login-account" placeholder="请输入密码" autocomplete="off">
+            <span class="regist-success" style="width:40px;"></span>
+            <span class="new-register-error">两次密码不一致</span>
+        </div>
+        <div class="new-register-row">
+            <p class="new-register-label">图形验证</p>
+            <input type="text" class="new-login-account registerCode" placeholder="请输入4位验证码" style="width: 140px;" autocomplete="off">
+            <span class="pic-register"></span>
+            <span class="validation-pic-change" onclick="changeCode()">看不清 <br>换一张</span>
+            <span class="regist-success" style="width:40px;"></span>
+            <span class="new-register-error">验证码错误</span>
+        </div>
+        <div class="text">
+            <input type="checkbox" name="" id="" class="float_left" autocomplete="off">
+            <p class="float_left">我已阅读并接受<a>版权声明</a>和<a>隐私保护</a>条款</p>
+        </div>
+        <div class="btn">
+            <input type="button" value="注册">
+        </div>
+        <h2><a href="login.html">已有账号,马上登录</a></h2>
+    </div>
+    <!-- links-->
+    <div class="links">
+        <div class="links-con">
+            <div class="links-help">
+                <div class="about-CQ lf">
+                    <div class="about-icon">
+                        <img src="./images/518ff8d6-1c02-49d9-b9ee-4db713b02e1d.tmp" alt="">
+                    </div>
+                    <div class="about-describe">
+                        <h1 style="font-weight:bold">物流快线</h1>
+                        <p>及时响应准确送达</p>
+                    </div>
+                </div>
+                <div class="about-CQ about-CQ-center">
+                    <div class="about-icon">
+                        <img src="./images/069620bc-f033-4f89-8ad0-1eb7765c5b96.tmp" alt="">
+                    </div>
+                    <div class="about-describe">
+                        <h1 style="font-weight:bold">售后网点</h1>
+                        <p>20000余家售后网点</p>
+                    </div>
+                </div>
+                <div class="about-CQ rf">
+                    <div class="about-icon">
+                        <img src="./images/613fba40-7c18-46be-adb7-0177f3ae6a41.tmp" alt="">
+                    </div>
+                    <div class="about-describe">
+                        <h1 style="font-weight:bold">无忧报修</h1>
+                        <p>7*24小时客服热线</p>
+                    </div>
+                </div>
+            </div>
+            <div class="links-serve float_left">
+                <ul class="lf ml40">
+                    <li class="help-title">友情链接</li>                   
+                    <li><a href="#">MELING美菱</a></li>
+                    <li><a href="#">中科美菱</a></li>
+                    <li><a href="#">日电科技</a></li>
+                    <li><a href="#">长虹手机</a></li>
+                </ul>
+                <ul class="lf">
+                    <li class="help-title">友情链接</li>                   
+                    <li><a href="#">家事帮</a></li>
+                    <li><a href="#">腾讯视频•TV端</a></li>
+                    <li><a href="#">虹创有品</a></li>
+                    <li><a href="#">长虹电子</a></li>
+                </ul>
+                <ul class="rt float_right">
+                    <li class="help-title">服务支持</li>
+                    <li><a href="#">产品查询</a></li>
+                    <li><a href="#">维修服务</a></li>
+                    <li><a href="#">延保服务</a></li>
+                    <li><a href="#">下载中心</a></li>
+                    
+                </ul>
+            </div>
+            <div class="links-login float_left">
+                <ul class="lf ml40">
+                    <li class="help-title">长虹集团</li>                   
+                    <li><a href="#">公司动态</a></li>
+                    <li><a href="#">投资者关系</a></li>
+                </ul>
+                <ul class="lf">
+                    <li class="help-title">商务合作</li>                   
+                    <li><a href="#">经销商登录</a></li>
+                    <li><a href="#">供应商登录</a></li>
+                    <li><a href="#">服务商登录</a></li>
+                </ul>
+            </div>
+            <div class="help-tel float_left">
+                <p><a href="#">在线客服</a></p>
+                <p class="fk"><a href="#">问题反馈</a></p>
+                <h1 style="margin-top:25px">4008-111-666</h1>
+                <h1>4006-111-666</h1>
+            </div>
+            <div class="help-code float_left">
+                <div class="help-code-box lf">
+                    <a href="#"><img src="./picture/cnhome-hcyp-ewm.jpg" alt=""></a>
+                    <p>官方特卖</p>
+                </div>
+                <div class="help-code-box rf">
+                    <a href="#"><img src="./images/W020160929398046882385.jpg" alt=""></a>
+                    <p>长虹服务</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-con">
+            <div class="footer-logo">
+                <img src="https://cn.changhong.com/images/footer-logo_03.png" alt="">
+            </div>
+            <p>蜀ICP备09001737号-1 | © 2020 四川长虹电器股份有限公司 版权所有</p>
+            <p>地址：四川省绵阳市高新区绵兴东路35号</p>
+            <div class="footer-text">
+                <h2>
+                    <img src="https://cn.changhong.com/images/wzba-icon_03.png" alt="">
+                    <em>经营性网站备案信息</em>   
+                </h2>
+                <h2>
+                    <img src="https://cn.changhong.com/images/cxwz-icon_06.png" alt="">
+                    <em>诚信网站</em>   
+                </h2>
+                <h2>
+                    <img style="width: 20px;height: 20px;" src="https://cn.changhong.com/images/gsjgicon.gif" alt="">
+                    <em>工商网监</em>   
+                </h2>
+                <h2>
+                    <img src="https://cn.changhong.com/images/wsjy-icon_06.png" alt="">
+                    <em>网上交易保障中心</em>   
+                </h2>
+                <h2>
+                    <img  src="https://cn.changhong.com/images/kxr-icon_08.png" alt="">
+                    <em>可信网站信用评估</em>   
+                </h2>
+            </div>
+            <div style="width: 64px;height: 21px;"><a href="">入驻品牌</a></div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="./ajax1/ajax.js"></script>
+<script src="./jq/jquery.js"></script>
+<script src="./ajax1/cookie.js"></script>
+<script src="./js/register.js"></script>

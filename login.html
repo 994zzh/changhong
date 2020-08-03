@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./iconfont/font_ohs3hhg4txl/iconfont.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="header-logo">
+            <img src="./picture/header-logo_07.png" alt="">
+        </div>
+        <div class="space-line"></div>
+        <div class="pro-name">通行证</div>
+    </header>
+    <!-- 登录 -->
+    <div class="content-box">
+        <ul class="content-navigate">
+            <li class="navigate1">账号密码登录</li>
+            <li class="navigate2">手机短信登录</ul>
+        </ul>
+        <div style="width: 100%; height: 30px"></div>
+        <ul class="content-count">
+            <li class="count1 count">
+                <div class="input-top ">
+                    <span class="iconfont icon-zhanghu"></span>
+                    <input id="username" type="text" placeholder="手机/邮箱/用户名" maxlength="30" autocomplete="off">
+                </div>
+                <div style="width: 100%; height: 30px"></div>
+                <div class="input-top">
+                    <span class="iconfont icon-mima"></span>
+                    <input id="userpass" type="password" placeholder="密码" autocomplete="off">
+                </div>
+            </li>
+            <li class="count2 count">
+                <div class="input-top ">
+                    <span class="iconfont icon-shoujihaoma"></span>
+                    <input id="phone" class="loginInput" placeholder="手机号码" maxlength="11">
+                </div>
+                <div style="width: 100%; height: 30px"></div>
+                <div class="input-top">
+                    <span class="iconfont icon-duanxinyanzhengma"></span>
+                    <input id="smsCode" class="loginInput verifiCodeInput" placeholder="短信验证码" maxlength="6" style="width: 210px;">
+                    <button id="getVerifiCodeBtn" class="getVerifiCodeBtn">获取验证码</button>
+                </div>
+            </li>
+        </ul>
+        <div style="width: 100%; height: 30px"></div>
+        <button class="loginBtn"  id="account-login">登录</button>
+        <div class="register-top">
+            <a href="#" class="forgetBtn">忘记密码</a>
+			<a href="register.html" class="registerBtn">注册</a>
+        </div>
+        <div class="other-logintop">
+			<div class="left-line line"></div>
+			<div class="other-loginfs">其他登录方式</div>
+			<div class="right-line line"></div>
+        </div>
+        <div class="other-login">
+            <a target="_top" href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101347331&redirect_uri=https%3a%2f%2fpassport.changhong.com%2fredirect.do%3fenvironment%3dproduct%26livemode%3d1%26service%3dhttps://cn.changhong.com/%26source%3dqq">
+                <img src="./picture/QQicon.png" alt="">
+            </a>
+            <a target="_top" href="https://open.weixin.qq.com/connect/qrconnect?appid=wxb21ab427f39e3633&redirect_uri=https://passport.changhong.com/redirect.do?environment=product%26livemode=1%26service=https://cn.changhong.com/%26source%3dweChat&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect">
+                <img src="./picture/weixin.png" alt="">
+            </a> 
+            <a target="_top" href="https://api.weibo.com/oauth2/authorize?client_id=3311627057&redirect_uri=https://passport.changhong.com/redirect.do?environment=product%26livemode=1%26service=https://cn.changhong.com/%26source=weibo&response_type=code&state=&scope=all">
+                <img src="./picture/weibo.png" alt="">
+            </a> 
+            <a target="_top" href="https://auth.alipay.com/login/index.htm?goto=https%3A%2F%2Fopenauth.alipay.com%3A443%2Foauth2%2FpublicAppAuthorize.htm%3Fapp_id%3D2017102409491491%26scope%3Dauth_user,auth_base%26redirect_uri%3Dhttps%3a%2f%2fpassport.changhong.com%2fredirect.do%3fenvironment%3dproduct%26livemode%3d1%26service=https://cn.changhong.com/">
+                <img src="./picture/pay.png" alt="">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+<script src="./ajax1/ajax.js"></script>
+<script src="./ajax1/cookie.js"></script>
+<script src="./js/loginTab.js"></script>
+<script src="./js/login.js"></script>

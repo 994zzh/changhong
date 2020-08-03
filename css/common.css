@@ -1,0 +1,36 @@
+@charset "utf-8";
+/*
+    当前整个网站里面：公共的样式。
+    网站头部 和 底部的样式......
+*/
+/* 公共的样式 */
+.float_left{
+    float:left;
+}
+.float_right{
+    float:right;
+}
+.clear_margin{
+    margin:0!important;
+}
+.clear_border{
+    border:0!important;
+}
+.clear_bg{
+    background:none!important;
+}
+.clear_r{
+    margin-right:0!important;
+}
+.clear_l{
+    padding-left:0!important;
+}
+.clear_t{
+    margin-top:0!important;
+}
+.clear_b{
+    margin-bottom:0!important;
+}
+span{
+    display:block;
+}
