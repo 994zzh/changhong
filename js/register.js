@@ -1,4 +1,5 @@
 // 验证用户名格式
+var arr1=[false,false,false,false,false];
 $("[name='username']").blur(function(){
     // 数字，字母，下划线组成，不能以数字开头，6-16位
     var reg = /^[_a-zA-Z]\w{5,15}$/;
@@ -19,6 +20,7 @@ $("[name='username']").blur(function(){
                 }else{
                     $("[name='username']").next().show();
                     $("[name='username']").next().next().next().hide()
+                    arr1[0]=true;
                 }
             }   
         })
@@ -34,6 +36,7 @@ $("[name='userpass']").blur(function(){
     if(reg.test($(this).val())){
         $(this).next().next().hide();
         $(this).next().show()
+        arr1[1]=true;
     }else{
         $(this).next().hide();
         $(this).next().next().show()
@@ -53,7 +56,8 @@ $("[name='commonpass']").blur(function(){
     }
     if($("[name='userpass']").val() == $("[name='commonpass']").val()){
         $("[name='commonpass']").next().next().hide();
-        $("[name='commonpass']").next().show()
+        $("[name='commonpass']").next().show();
+        arr1[2]=true;
     }else{
         $("[name='commonpass']").next().hide();
         $("[name='commonpass']").next().next().show()
@@ -63,10 +67,17 @@ $(".registerCode").blur(function(){
     if($(this).val() == $(this).next().html()){
         $(this).next().next().next().next().hide()
         $(this).next().next().next().show()
+        arr1[3]=true;
         // console.log(1)
     }else{
         $(this).next().next().next().hide()
         $(this).next().next().next().next().show()
+    }
+})
+// 勾选复选框
+$("#register-check").click(function(){
+    if($("#register-check").prop("checked")){
+        arr1[4]=true;
     }
 })
 
@@ -94,17 +105,19 @@ $(".registerCode").blur(function(){
     }
 }
 
-
 $(".btn [type='button']").click(function(){
-    var username = document.getElementsByName("username")[0].value;
-    var userpass = document.getElementsByName("userpass")[0].value;
-    $.ajax({
-        type:'GET',
-        url:'./php/register.php',
-        data:`username=${username}&userpass=${userpass}`,
-        success(data){
-            location.href='login.html'
-        }
-    })
-    
+    // console.log($("[type='checkbox']"))
+    if(arr1.every(function(item){return item;})){
+        var username = document.getElementsByName("username")[0].value;
+        var userpass = document.getElementsByName("userpass")[0].value;
+        $.ajax({
+            type:'GET',
+            url:'./php/register.php',
+            data:`username=${username}&userpass=${userpass}`,
+            success(data){
+                // console.log(data)
+                location.href='login.html'
+            }
+        })
+    }
 })

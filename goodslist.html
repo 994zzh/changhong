@@ -1222,25 +1222,25 @@
 </body>
 </html>
 <script src="./js/jquery.js"></script>
-<script src="./js/shouqi.js"></script>
 <script src="./ajax1/ajax.js"></script>
+<script src="./js/shouqi.js"></script>
 <script src="./js/page.js"></script>
 <script src="./js/navSlide.js"></script>
 <!-- <script src="./js/list.js"></script> -->
 <script>
     // 给header做移入移出事件
-var oComment = document.querySelectorAll(".header-CHwidth .Ch-inner");
-for(var i=0;i<oComment.length;i++){
-    oComment[i].onmouseover=function(){
-        for(var j=0;j<oComment.length;j++){
-            oComment[j].nextElementSibling.style.display="none";
+    var oComment = document.querySelectorAll(".header-CHwidth .Ch-inner");
+    for(var i=0;i<oComment.length;i++){
+        oComment[i].onmouseover=function(){
+            for(var j=0;j<oComment.length;j++){
+                oComment[j].nextElementSibling.style.display="none";
+            }
+            this.nextElementSibling.style.display="block";
         }
-        this.nextElementSibling.style.display="block";
+        oComment[i].onmouseout=function(){
+            this.nextElementSibling.style.display="none";
+        }
     }
-    oComment[i].onmouseout=function(){
-        this.nextElementSibling.style.display="none";
-    }
-}
 
 
 // 给首页做点击事件

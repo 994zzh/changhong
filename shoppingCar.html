@@ -49,10 +49,106 @@
             </div>
         </div>
     </header>
+    <!-- nav -->
+    <div class="nav">
+        <div class="nav-con">
+            <div class="nav-logo float_left">
+                <a href="#">
+                    <img src="./picture/p020161125568572860644.png" alt="">
+                </a>
+            </div>
+            <div class="car-header float_left">
+                <div class="car-step float_right">
+                    <div class="car-step-num car-cur-step"><span>1</span>我的购物车</div>
+                    <p></p>
+                    <div class="car-step-num"><span>2</span>订单确认</div>
+                    <p></p>
+                    <div class="car-step-num"><span>3</span>在线支付</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- car -->
     <div class="car">
         <div class="car-con">
-            <h4>您的购物车还没有商品</h4>
+            <!-- <h4>您的购物车还没有商品</h4> -->
+            <!-- 全选 -->
+            <div class="car-con-top clear_fix">
+                <div class="car-lf clear_fix float_left">
+                    <div class="car-all-check er">
+                        <input type="checkbox" class="quan float_left">
+                    </div>
+                    <p class="car-lf-sp float_left">
+                        全选<span id="total_num">0</span>种商品
+                    </p>
+                </div>
+                <p class="rt-sp float_right">
+                    <span class="float_left">0</span>种商品已失效
+                </p>
+            </div>
+            <!-- 商品列表 -->
+            <div class="car-item-lb">
+                <div class="car-check-box float_left"><input type="checkbox"></div>
+                <div class="car-deal-rt float_left">
+                    <div class="car-deal-top">
+                        <div class="car-opt-bk">
+                            <a href="#" class="opt-like "></a>
+                            <a href="#" class="opt-del"></a>
+                        </div>
+                    </div>
+                    <div class="car-deal-sp clear_fix">
+                        <a href="#" class="car-deal-pc"><img src="https://cn.changhong.com/cpzx/jy_aircondition/ljs_719/3p/201807/W020191022551881711544.jpg" alt=""></a>
+                        <div class="car-deal-name">
+                            <a href="#">3P长虹冷暖空调KFR-72LW/DLIX(W1-M)+1</a>
+                        </div>
+                        <div class="car-deal-price">
+                            <p class="now-price">单价<span>5399.00</span>元</p>
+                        </div>
+                        <div class="car-deal-qt">
+                            <label>数量</label>
+                            <div class="car-quantity-form">
+                                <a href="#" class="reduceNum float_left">-</a>
+                                <input type="text" value="1">
+                                <a href="#" class="addNum float_right">+</a>
+                            </div>
+                        </div>
+                        <div class="car-item-sta">
+                            <span>有货</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="car-item-lb">
+                <div class="car-check-box float_left"><input type="checkbox"></div>
+                <div class="car-deal-rt float_left">
+                    <div class="car-deal-top">
+                        <div class="car-opt-bk">
+                            <a href="#" class="opt-like "></a>
+                            <a href="#" class="opt-del"></a>
+                        </div>
+                    </div>
+                    <div class="car-deal-sp clear_fix">
+                        <a href="#" class="car-deal-pc"><img src="https://cn.changhong.com/cpzx/jy_aircondition/ljs_719/3p/201807/W020191022551881711544.jpg" alt=""></a>
+                        <div class="car-deal-name">
+                            <a href="#">3P长虹冷暖空调KFR-72LW/DLIX(W1-M)+1</a>
+                        </div>
+                        <div class="car-deal-price">
+                            <p class="now-price">单价<span>5399.00</span>元</p>
+                        </div>
+                        <div class="car-deal-qt">
+                            <label>数量</label>
+                            <div class="car-quantity-form">
+                                <a href="#" class="reduceNum float_left">-</a>
+                                <input type="text" value="1">
+                                <a href="#" class="addNum float_right">+</a>
+                            </div>
+                        </div>
+                        <div class="car-item-sta">
+                            <span>有货</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- links-->
@@ -174,5 +270,18 @@
             <div style="width: 64px;height: 21px;"><a href="">入驻品牌</a></div>
         </div>
     </footer>
+    <!-- 结算 -->
+    <div class="car-sum-price">
+        <div class="sum-con">
+            <p class="car-pro-count">已选<span class="num-count">0</span>件商品</p>
+            <div class="sum-pro-rt float_right">
+                <p class="sum-price">总计<span>0.00</span>元</p>
+                <input type="button" value="立即结算" class="car-pay-btn">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+<script src="./jq/jquery.js"></script>
+<script src="./ajax1/cookie.js"></script>
+<script src="./js/shoppingCar.js"></script>

@@ -67,8 +67,8 @@ $.getJSON('./jq/kt.json',function(data){
                     </div>
                 </div>
                 <div class="item-buy">
-                    <a href="#" class="nowBuy clear_border" style="background:#F12020;color:#fff">立即购买</a>
-                    <a href="./shoppingcar.html" class="addinCar" >加入购物车</a>
+                    <a href="shoppingCar.html" class="nowBuy clear_border" style="background:#F12020;color:#fff">立即购买</a>
+                    <a href="#" class="addinCar" >加入购物车</a>
                 </div>
                 <p>
                     <a href="#" class="kefu">在线客服</a>
@@ -99,7 +99,25 @@ $.getJSON('./jq/kt.json',function(data){
 
     // 加入购物车
     $(".addinCar").click(function(){
-        
+        var cartList=JSON.parse(localStorage.getItem('cartList'))
+        var flg = true
+        if(cartList){
+            cartList.forEach(item=>{
+                if(item['标题链接'] == dt['标题链接']){
+                    flg = false
+                }
+            })
+            if(flg){
+                cartList.push(dt);
+                localStorage.setItem("cartList",JSON.stringify(cartList));
+
+            }
+        }else{
+            var arr = []
+            arr.push(dt)
+            arr = JSON.stringify(arr);
+            localStorage.setItem("cartList",arr)
+        }
     })
 
 
@@ -109,7 +127,6 @@ $.getJSON('./jq/kt.json',function(data){
     // 省市区三级联动
     $(".address-sel>h1").mouseover(function(){
         $(".address-box").show()
-        console.log(1)
     })
     $(".select-area").show()
     console.log($(".select-area"))
