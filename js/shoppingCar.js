@@ -90,8 +90,8 @@ $(".addNum").click(function(){
 $(".reduceNum").click(function(){
     var n = $(this).next().val();
     n--;
-    if(n<1){
-        n=0;
+    if(n<=1){
+        n=1;
     }
     $(this).next().val(n);
     calTotal();
@@ -115,23 +115,30 @@ $(".quan").click(function(){
 })
 $("input[name='a1']").click(function(){
     var b=0;
+    var arr = []
     $("input[name='a1']").each(function(index,item){
+
+        var flg = $(item).prop("checked")
+        arr.push(flg)
         if($(item).prop("checked")){
-            $(".quan").prop("checked",true);
             b++;
-        }else{
-            $(".quan").prop("checked",false);
         }
     })
+    var p = arr.every(function(item){return item})
+    $(".quan").prop("checked",p);
     $("#total_num").html(b);
     calTotal();
 })
 // 删除
 $(".opt-del").click(function(){
     // $(this).parents(".car-item-lb").remove();
+    // console.log($("#total_num").html())
+    var c = $("#total_num").html();
+    c--;
+    $("#total_num").html(c)
     var titName = $(this).parents(".car-item-lb").find(".titName").html();
     var arr3 = JSON.parse(localStorage.getItem("cartList"));
-    // console.log(JSON.parse(str1))
+    console.log(arr3)
     for(var i=0;i<arr3.length;i++){
         if(arr3[i]['标题链接'] == titName){
             arr3.splice(i,1);

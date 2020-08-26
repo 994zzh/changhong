@@ -119,5 +119,7 @@ $(".btn [type='button']").click(function(){
                 location.href='login.html'
             }
         })
+    }else{
+        alert("输入内容不能为空")
     }
 })
